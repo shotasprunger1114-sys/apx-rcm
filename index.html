@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>APX RCM — Medical Billing & Revenue Cycle Management | Michigan</title>
+<meta name="description" content="APX RCM handles the full revenue cycle for Michigan medical practices — billing, credentialing, insurance verification, and denial management. Month-to-month. No lock-in."/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:   #0C1A2E;
+  --navy2:  #0A1525;
+  --blue:   #2A6DB5;
+  --green:  #2ECC71;
+  --green2: #27AE60;
+  --white:  #FFFFFF;
+  --gray:   #A8B4BE;
+  --off:    #F5F7FA;
+  --border: #1E3050;
+  --text:   #1A2A3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(12,26,46,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.logo-mark{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--blue),var(--green));
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;color:#fff;letter-spacing:-0.5px;
+}
+.logo-text{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.logo-text span{color:var(--green);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{
+  background:var(--green);color:var(--navy);
+  font-size:14px;font-weight:700;
+  padding:10px 24px;border-radius:8px;
+  transition:background 0.2s,transform 0.2s;
+}
+.nav-cta:hover{background:#27AE60;transform:translateY(-1px);}
+.nav-phone{font-size:13px;font-weight:600;color:rgba(255,255,255,0.6);margin-right:20px;}
+.nav-phone strong{color:#fff;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:0.3s;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--navy2);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding-top:72px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(42,109,181,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(46,204,113,0.08) 0%, transparent 60%);
+}
+/* subtle animated grid */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(42,109,181,0.08) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(42,109,181,0.08) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove{
+  0%  { background-position: 0 0, 0 0; }
+  100%{ background-position: 60px 60px, 60px 60px; }
+}
+.hero-content{
+  max-width:1200px;margin:0 auto;padding:80px 40px;
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(46,204,113,0.12);
+  border:1px solid rgba(46,204,113,0.3);
+  color:var(--green);
+  font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:7px 16px;border-radius:20px;margin-bottom:24px;
+}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);}}
+.hero h1{
+  font-size:clamp(38px,4vw,60px);font-weight:900;
+  line-height:1.08;letter-spacing:-1.5px;
+  color:#fff;margin-bottom:24px;
+}
+.hero h1 .accent{
+  background:linear-gradient(90deg,var(--blue),var(--green));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:18px;font-weight:400;color:rgba(255,255,255,0.65);
+  line-height:1.7;max-width:520px;margin-bottom:40px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-primary{
+  background:var(--green);color:var(--navy);
+  font-size:16px;font-weight:700;padding:16px 36px;border-radius:10px;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background 0.2s,transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 4px 20px rgba(46,204,113,0.3);
+}
+.btn-primary:hover{background:#27AE60;transform:translateY(-2px);box-shadow:0 8px 28px rgba(46,204,113,0.4);}
+.btn-secondary{
+  background:rgba(255,255,255,0.08);color:#fff;
+  font-size:16px;font-weight:600;padding:16px 36px;border-radius:10px;
+  border:1.5px solid rgba(255,255,255,0.2);
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background 0.2s,border-color 0.2s;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.4);}
+.hero-trust{display:flex;align-items:center;gap:20px;}
+.trust-badge{font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:6px;}
+.trust-badge::before{content:'✓';color:var(--green);font-weight:800;}
+
+/* HERO RIGHT — CARD */
+.hero-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
+  padding:36px;
+  backdrop-filter:blur(20px);
+}
+.hero-card-title{font-size:13px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.metric-row{display:flex;flex-direction:column;gap:18px;}
+.metric-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:rgba(255,255,255,0.04);border-radius:10px;border:1px solid rgba(255,255,255,0.06);}
+.metric-label{font-size:13px;font-weight:500;color:rgba(255,255,255,0.55);}
+.metric-value{font-size:22px;font-weight:800;color:#fff;}
+.metric-value.green{color:var(--green);}
+.metric-diff{font-size:11px;font-weight:700;color:var(--green);background:rgba(46,204,113,0.12);padding:3px 8px;border-radius:6px;}
+.hero-card-note{margin-top:20px;font-size:12px;color:rgba(255,255,255,0.3);text-align:center;font-style:italic;}
+
+/* ── LOGOS STRIP ── */
+.logos-strip{background:#0A1525;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 40px;}
+.logos-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center;}
+.logos-label{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap;}
+.payer-pill{font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);padding:6px 14px;border:1px solid rgba(255,255,255,0.1);border-radius:20px;white-space:nowrap;}
+
+/* ── SECTION GENERIC ── */
+.section{padding:96px 40px;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-label{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:14px;}
+.section-title{font-size:clamp(28px,3.5vw,44px);font-weight:900;line-height:1.12;letter-spacing:-1px;color:var(--navy);margin-bottom:18px;}
+.section-sub{font-size:18px;font-weight:400;color:#5a6b7a;line-height:1.65;max-width:600px;}
+.dark-section{background:var(--navy);}
+.dark-section .section-title{color:#fff;}
+.dark-section .section-sub{color:rgba(255,255,255,0.55);}
+.dark-section .section-label{color:var(--green);}
+.off-section{background:var(--off);}
+
+/* ── BENEFITS / STATS ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid #E2E8EF;border-radius:16px;overflow:hidden;margin-top:56px;}
+.stat-item{padding:36px 32px;text-align:center;border-right:1.5px solid #E2E8EF;position:relative;}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-size:44px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:8px;letter-spacing:-1px;}
+.stat-num span{color:var(--green);}
+.stat-label{font-size:14px;font-weight:500;color:#6B7B8D;line-height:1.4;}
+
+.benefits-intro{max-width:600px;margin-bottom:0;}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+.benefit-card{
+  background:#fff;border:1.5px solid #E2E8EF;border-radius:14px;padding:32px;
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.benefit-card:hover{box-shadow:0 8px 32px rgba(12,26,46,0.1);transform:translateY(-3px);}
+.benefit-icon{
+  width:52px;height:52px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(42,109,181,0.12),rgba(46,204,113,0.12));
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:18px;
+}
+.benefit-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.benefit-desc{font-size:14px;font-weight:400;color:#6B7B8D;line-height:1.65;}
+
+/* ── PROCESS ── */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:56px;position:relative;}
+
+/* animated connector line */
+.process-line{
+  position:absolute;top:32px;
+  left:calc(12.5% + 32px);right:calc(12.5% + 32px);
+  height:2px;background:rgba(255,255,255,0.1);z-index:0;overflow:hidden;
+}
+.process-line-fill{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--blue),var(--green));
+  transition:width 1.2s ease 0.4s;
+}
+.process-line.active .process-line-fill{ width:100%; }
+
+.process-step{
+  text-align:center;position:relative;z-index:1;
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.5s ease, transform 0.5s ease;
+}
+.process-step.visible{ opacity:1; transform:translateY(0); }
+.process-step:nth-child(2){ transition-delay:0.25s; }
+.process-step:nth-child(3){ transition-delay:0.5s; }
+.process-step:nth-child(4){ transition-delay:0.75s; }
+
+.step-num{
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--green));
+  color:#fff;font-size:22px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  box-shadow:0 4px 20px rgba(42,109,181,0.4);
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.process-step:hover .step-num{
+  transform:scale(1.08);
+  box-shadow:0 8px 28px rgba(46,204,113,0.4);
+}
+.step-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;}
+.step-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;}
+
+/* ── SERVICES ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+.service-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;padding:28px;
+  transition:border-color 0.2s,background 0.2s;
+}
+.service-card:hover{border-color:rgba(46,204,113,0.3);background:rgba(255,255,255,0.06);}
+.service-icon{font-size:28px;margin-bottom:14px;}
+.service-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;}
+.service-desc{font-size:13.5px;color:rgba(255,255,255,0.5);line-height:1.65;}
+
+/* ── COMPARISON ── */
+.comparison-wrap{margin-top:56px;overflow-x:auto;}
+.comparison-table{width:100%;border-collapse:collapse;min-width:700px;}
+.comparison-table th{padding:16px 24px;font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;text-align:left;}
+.comparison-table th:first-child{color:#6B7B8D;background:#F5F7FA;}
+.comparison-table th.them{background:#F5F7FA;color:#9BA8B3;}
+.comparison-table th.us{background:var(--navy);color:var(--green);}
+.comparison-table td{padding:15px 24px;font-size:14px;border-top:1px solid #E8ECF0;vertical-align:middle;}
+.comparison-table td:first-child{font-weight:600;color:var(--navy);background:#FAFBFC;}
+.comparison-table td.them{color:#6B7B8D;background:#FAFBFC;}
+.comparison-table td.us{background:rgba(12,26,46,0.04);color:var(--navy);font-weight:600;}
+.check{color:var(--green2);font-size:18px;font-weight:900;}
+.cross{color:#E74C3C;font-size:18px;font-weight:900;}
+.partial{color:#E67E22;font-size:15px;}
+.highlight-row td{background:rgba(46,204,113,0.06)!important;}
+
+/* ── PRICING ── */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px;}
+.pricing-card{
+  background:#fff;border:2px solid #E2E8EF;border-radius:16px;padding:36px;
+  position:relative;transition:box-shadow 0.2s,transform 0.2s;
+}
+.pricing-card:hover{box-shadow:0 12px 40px rgba(12,26,46,0.12);transform:translateY(-3px);}
+.pricing-card.featured{border-color:var(--blue);background:var(--navy);}
+.featured-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:var(--navy);
+  font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 16px;border-radius:20px;white-space:nowrap;
+}
+.pricing-name{font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.pricing-card.featured .pricing-name{color:var(--green);}
+.pricing-price{font-size:36px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:6px;letter-spacing:-1px;}
+.pricing-card.featured .pricing-price{color:#fff;}
+.pricing-note{font-size:13px;color:#8A9BAB;margin-bottom:24px;}
+.pricing-card.featured .pricing-note{color:rgba(255,255,255,0.4);}
+.pricing-divider{height:1px;background:#E8ECF0;margin:20px 0;}
+.pricing-card.featured .pricing-divider{background:rgba(255,255,255,0.12);}
+.pricing-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pricing-list li{font-size:13.5px;color:#4A5A68;display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
+.pricing-card.featured .pricing-list li{color:rgba(255,255,255,0.7);}
+.pricing-list li::before{content:'✓';color:var(--green2);font-weight:800;flex-shrink:0;margin-top:1px;}
+.pricing-btn{
+  display:block;text-align:center;
+  background:var(--blue);color:#fff;
+  font-size:14px;font-weight:700;
+  padding:14px;border-radius:10px;
+  transition:background 0.2s;
+}
+.pricing-btn:hover{background:#2260A0;}
+.pricing-card.featured .pricing-btn{background:var(--green);color:var(--navy);}
+.pricing-card.featured .pricing-btn:hover{background:#27AE60;}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:56px;}
+.about-image-wrap{
+  background:linear-gradient(135deg,var(--navy) 0%,#0D2040 100%);
+  border-radius:20px;padding:48px;
+  position:relative;overflow:hidden;
+}
+.about-image-wrap::before{
+  content:'';position:absolute;
+  top:-40px;right:-40px;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(42,109,181,0.25) 0%,transparent 70%);
+}
+.about-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;position:relative;z-index:1;}
+.about-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px;}
+.about-stat-num{font-size:36px;font-weight:900;color:#fff;margin-bottom:4px;}
+.about-stat-num span{color:var(--green);}
+.about-stat-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;}
+.about-content {}
+.about-content p{font-size:16px;color:#4A5A68;line-height:1.75;margin-bottom:20px;}
+.about-values{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+.about-value{display:flex;align-items:flex-start;gap:14px;padding:16px;background:var(--off);border-radius:10px;}
+.value-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.value-text{font-size:14px;color:#3A4A58;line-height:1.55;}
+.value-text strong{font-weight:700;color:var(--navy);display:block;margin-bottom:2px;}
+
+/* ── FAQ ── */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px;}
+.faq-item{background:#fff;border:1.5px solid #E2E8EF;border-radius:12px;overflow:hidden;}
+.faq-q{
+  padding:22px 24px;font-size:15px;font-weight:700;color:var(--navy);
+  cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  user-select:none;
+}
+.faq-q::after{content:'+';font-size:20px;font-weight:400;color:var(--blue);flex-shrink:0;line-height:1.2;transition:transform 0.2s;}
+.faq-item.open .faq-q::after{content:'−';}
+.faq-a{display:none;padding:0 24px 22px;font-size:14px;color:#5A6B7A;line-height:1.7;border-top:1px solid #F0F3F7;}
+.faq-item.open .faq-a{display:block;}
+
+/* ── CONTACT ── */
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start;margin-top:56px;
+}
+.contact-info{}
+.contact-info h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:16px;}
+.contact-info p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:32px;}
+.contact-detail{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.contact-detail-icon{
+  width:42px;height:42px;background:rgba(42,109,181,0.15);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;
+}
+.contact-detail-text{font-size:14px;color:rgba(255,255,255,0.7);}
+.contact-detail-text strong{display:block;font-size:12px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+
+.contact-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:8px;padding:13px 16px;
+  font-size:14px;color:#fff;font-family:'IBM Plex Sans',sans-serif;
+  outline:none;transition:border-color 0.2s;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:rgba(255,255,255,0.3);}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--green);}
+.form-group select{cursor:pointer;}
+.form-group select option{background:var(--navy);color:#fff;}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-submit{
+  width:100%;background:var(--green);color:var(--navy);
+  font-size:15px;font-weight:800;padding:16px;
+  border:none;border-radius:10px;cursor:pointer;
+  font-family:'IBM Plex Sans',sans-serif;
+  transition:background 0.2s,transform 0.2s;
+  margin-top:4px;
+}
+.form-submit:hover{background:#27AE60;transform:translateY(-1px);}
+.form-hipaa{font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.form-hipaa::before{content:'🔒';font-size:13px;}
+
+/* ── FOOTER ── */
+footer{background:#050D18;border-top:1px solid rgba(255,255,255,0.06);padding:48px 40px 32px;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.7;margin-top:16px;max-width:260px;}
+.footer-col h4{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col li a{font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s;}
+.footer-col li a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.25);}
+.footer-badges{display:flex;gap:10px;}
+.footer-badge{font-size:11px;font-weight:600;color:rgba(255,255,255,0.3);padding:5px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:20px;}
+
+/* ── MOBILE NAV ── */
+.mobile-menu{
+  display:none;
+  position:fixed;top:72px;left:0;right:0;bottom:0;z-index:99;
+  background:rgba(10,21,37,0.98);
+  padding:32px 24px;
+  flex-direction:column;gap:8px;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  font-size:22px;font-weight:600;color:rgba(255,255,255,0.85);
+  padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);
+  display:block;
+}
+.mobile-menu .mobile-cta{
+  margin-top:24px;background:var(--green);color:var(--navy);
+  font-size:16px;font-weight:700;padding:16px;border-radius:10px;
+  text-align:center;border:none;
+}
+
+/* ── MOBILE ── */
+@media(max-width:960px){
+  .hero-content{grid-template-columns:1fr;gap:48px;padding:60px 24px;}
+  .hero-card{display:none;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(2){border-right:none;}
+  .stat-item:nth-child(2),.stat-item:nth-child(3){border-bottom:1.5px solid #E2E8EF;}
+  .benefits-grid{grid-template-columns:repeat(2,1fr);}
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+  .process-line{display:none;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .pricing-grid{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-image-wrap{display:none;}
+  .faq-grid{grid-template-columns:1fr;}
+  .contact-wrap{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  nav{padding:0 20px;}
+  .nav-links,.nav-phone{display:none;}
+  .hamburger{display:flex;}
+  .section{padding:64px 20px;}
+  .logos-strip{padding:20px;}
+  .logos-inner{gap:10px;}
+  .section-title{font-size:clamp(26px,5vw,38px);}
+}
+@media(max-width:640px){
+  .stats-row{grid-template-columns:repeat(2,1fr);border-radius:12px;}
+  .stat-item{border-right:none;border-bottom:1.5px solid #E2E8EF;}
+  .stat-item:nth-child(even){border-right:none;}
+  .stat-item:last-child,.stat-item:nth-last-child(2){border-bottom:none;}
+  .benefits-grid{grid-template-columns:1fr;}
+  .process-grid{grid-template-columns:1fr;}
+  .services-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .hero h1{font-size:36px;letter-spacing:-0.5px;}
+  .hero-sub{font-size:16px;}
+  .payer-pill{font-size:11px;padding:4px 10px;}
+  .comparison-table{font-size:12px;}
+  .comparison-table th,.comparison-table td{padding:10px 12px;}
+  .nav-cta{font-size:13px;padding:9px 16px;}
+  .process-step{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-mark">A</div>
+    <div class="logo-text">APX <span>RCM</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:0;">
+    <span class="nav-phone">Call us: <strong>248-686-1357</strong></span>
+    <a href="#contact" class="nav-cta">Get a Free Analysis</a>
+  </div>
+  <div class="hamburger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">Michigan-Based · HIPAA Compliant</div>
+      <h1>Your Priority Is <span class="accent">Patients.</span> Ours Is Your Billing.</h1>
+      <p class="hero-sub">APX RCM handles your full revenue cycle — from credentialing to claim submission to denial management — so you can focus entirely on patient care.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get a Free Revenue Analysis →</a>
+        <a href="#process" class="btn-secondary">See How It Works</a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-badge">Month-to-Month</span>
+        <span class="trust-badge">No Lock-In</span>
+        <span class="trust-badge">Dedicated Manager</span>
+        <span class="trust-badge">HIPAA Compliant</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">What Our Clients See</div>
+      <div class="metric-row">
+        <div class="metric-item">
+          <span class="metric-label">Average Collection Rate</span>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="metric-value green">96%+</span>
+            <span class="metric-diff">↑ From 78%</span>
+          </div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">First-Pass Claim Rate</span>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="metric-value green">98%</span>
+          </div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Days to Reimbursement</span>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="metric-value">14 Days</span>
+            <span class="metric-diff">↓ From 45</span>
+          </div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Denial Rate</span>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="metric-value green">&lt;2%</span>
+            <span class="metric-diff">↓ 91%</span>
+          </div>
+        </div>
+      </div>
+      <p class="hero-card-note">Results vary by practice size and specialty</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PAYER STRIP ══════ -->
+<div class="logos-strip">
+  <div class="logos-inner">
+    <span class="logos-label">Credentialed With</span>
+    <span class="payer-pill">BCBS Michigan</span>
+    <span class="payer-pill">Molina Healthcare</span>
+    <span class="payer-pill">United Healthcare</span>
+    <span class="payer-pill">Medicare / Medicaid</span>
+    <span class="payer-pill">Meridian Health</span>
+    <span class="payer-pill">Priority Health</span>
+    <span class="payer-pill">Humana</span>
+    <span class="payer-pill">Aetna</span>
+  </div>
+</div>
+
+<!-- ══════ STATS ══════ -->
+<section class="section off-section" id="results">
+  <div class="section-inner">
+    <div class="section-label">Proven Results</div>
+    <h2 class="section-title">Built to Maximize Your Revenue</h2>
+    <p class="section-sub">Every service we offer is designed around one outcome: getting your practice paid faster, more completely, and with less administrative burden on your team.</p>
+    <div class="stats-row" id="stats-row">
+      <div class="stat-item">
+        <div class="stat-num"><span class="countup" data-target="96">0</span><span>%+</span></div>
+        <div class="stat-label">Average Net Collection Rate across our client portfolio</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="countup" data-target="98">0</span><span>%</span></div>
+        <div class="stat-label">First-pass claim acceptance rate — denials start here</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="countup" data-target="14">0</span><span>d</span></div>
+        <div class="stat-label">Average days to reimbursement for clean claims</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="countup" data-target="24">0</span><span>/7</span></div>
+        <div class="stat-label">AR monitoring, claim tracking, and denial management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ BENEFITS ══════ -->
+<section class="section" id="benefits">
+  <div class="section-inner">
+    <div class="benefits-intro">
+      <div class="section-label">Why APX RCM</div>
+      <h2 class="section-title">We Don't Just Process Claims. We Protect Your Revenue.</h2>
+      <p class="section-sub">Most billing companies process claims. We build a revenue cycle that runs with precision — so nothing falls through the cracks.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">👤</div>
+        <div class="benefit-title">Dedicated Billing Manager</div>
+        <div class="benefit-desc">You get one assigned billing manager who knows your practice, your payers, and your providers. Not a call center. A real person.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📅</div>
+        <div class="benefit-title">Month-to-Month. No Lock-In.</div>
+        <div class="benefit-desc">We've never needed a long-term contract to keep clients. Our results do that. Cancel anytime with 30 days notice.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏅</div>
+        <div class="benefit-title">2+ Years Minimum Experience</div>
+        <div class="benefit-desc">Every member of our team meets a minimum 2-year industry experience requirement and completes our internal compliance training.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔒</div>
+        <div class="benefit-title">HIPAA Compliant + BAA Executed</div>
+        <div class="benefit-desc">We execute a Business Associate Agreement with every client. Your patient data is handled with full HIPAA compliance at every step.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📊</div>
+        <div class="benefit-title">Full Transparency + Reporting</div>
+        <div class="benefit-desc">Weekly and monthly reports on AR, collections, denial trends, and payer performance. You always know exactly where your money is.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏛️</div>
+        <div class="benefit-title">You Own Your Data. Always.</div>
+        <div class="benefit-desc">All patient data and financial records remain yours. If you ever leave, we provide a full data export upon final payment. No hostages.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROCESS ══════ -->
+<section class="section dark-section" id="process">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:580px;margin:0 auto 0;">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Up and Running in Days, Not Months</h2>
+      <p class="section-sub">Our onboarding process is built to be fast and frictionless. Most practices are fully transitioned within 30 days.</p>
+    </div>
+    <div class="process-grid" id="process-grid">
+      <div class="process-line"><div class="process-line-fill"></div></div>
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Free Revenue Analysis</div>
+        <div class="step-desc">We audit your current billing setup, identify revenue leaks, and show you exactly what you're leaving on the table.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Credentialing & Setup</div>
+        <div class="step-desc">We handle payer enrollment, CAQH setup, and EHR integration. You provide access — we do the rest.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Claims & Collections</div>
+        <div class="step-desc">Daily charge entry, claim scrubbing, eligibility verification, and real-time submission to all payers.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Ongoing Optimization</div>
+        <div class="step-desc">Monthly reporting, denial trend analysis, and payer contract reviews — we continuously find ways to improve your revenue.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SERVICES ══════ -->
+<section class="section dark-section" id="services" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="section-label">What We Handle</div>
+    <h2 class="section-title">Every Part of Your Revenue Cycle</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏥</div>
+        <div class="service-title">RCM & Billing</div>
+        <div class="service-desc">Full revenue cycle management including charge entry, claim submission, payment posting (ERA/EOB), and monthly AR reporting.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <div class="service-title">Credentialing</div>
+        <div class="service-desc">CAQH setup and attestation, payer enrollment submissions, status tracking, approvals, and ongoing recredentialing as needed.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✅</div>
+        <div class="service-title">Insurance Verification</div>
+        <div class="service-desc">Real-time eligibility and benefits verification before every visit — including pre-authorization and pre-certification workflows.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <div class="service-title">Denial Management</div>
+        <div class="service-desc">Systematic denial tracking, root cause analysis, appeals filing, and dispute resolution to recover every dollar owed.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💊</div>
+        <div class="service-title">Medication Authorization</div>
+        <div class="service-desc">Medication prior authorization submissions and referral coordination managed on behalf of your clinical team.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <div class="service-title">Billing Software (RXNT)</div>
+        <div class="service-desc">Full RXNT setup including clearinghouse connection, claim reporting access, and EHR integration for seamless data flow.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ COMPARISON ══════ -->
+<section class="section" id="comparison">
+  <div class="section-inner">
+    <div class="section-label">In-House vs. APX RCM</div>
+    <h2 class="section-title">The Real Cost of Doing It Yourself</h2>
+    <p class="section-sub">Most practices underestimate how much in-house billing actually costs — in salaries, software, training, and revenue that slips through the cracks.</p>
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th class="them">In-House Billing</th>
+            <th class="us">APX RCM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monthly Cost</td>
+            <td class="them">$5,000–$8,000+ (staff + software + benefits)</td>
+            <td class="us">Transparent, performance-based pricing</td>
+          </tr>
+          <tr>
+            <td>First-Pass Claim Rate</td>
+            <td class="them"><span class="partial">~75–80% industry average</span></td>
+            <td class="us"><span class="check">98%+</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Denial Management</td>
+            <td class="them"><span class="cross">Often delayed or missed</span></td>
+            <td class="us"><span class="check">Systematic — every denial tracked and appealed</span></td>
+          </tr>
+          <tr>
+            <td>Staff Turnover Risk</td>
+            <td class="them"><span class="cross">High — billing staff turnover disrupts revenue</span></td>
+            <td class="us"><span class="check">Zero — dedicated manager + full team backup</span></td>
+          </tr>
+          <tr>
+            <td>Credentialing</td>
+            <td class="them"><span class="cross">Often outsourced separately or missed</span></td>
+            <td class="us"><span class="check">Fully managed — all payers, all providers</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>HIPAA Compliance</td>
+            <td class="them"><span class="partial">Your responsibility to manage</span></td>
+            <td class="us"><span class="check">Fully managed — BAA executed on day one</span></td>
+          </tr>
+          <tr>
+            <td>Reporting & Analytics</td>
+            <td class="them"><span class="partial">Basic — depends on staff capability</span></td>
+            <td class="us"><span class="check">Weekly + monthly AR, denial, and collection reports</span></td>
+          </tr>
+          <tr>
+            <td>Contract Commitment</td>
+            <td class="them"><span class="cross">Ongoing salary/benefits obligation</span></td>
+            <td class="us"><span class="check">Month-to-month — 30 days notice to exit</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PRICING ══════ -->
+<section class="section off-section" id="pricing">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:560px;margin:0 auto 0;">
+      <div class="section-label">Transparent Pricing</div>
+      <h2 class="section-title">Simple, Performance-Aligned Pricing</h2>
+      <p class="section-sub">No hidden fees. No surprise charges. Month-to-month agreements — because we earn your business every month.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">Credentialing</div>
+        <div class="pricing-price">$1,000<span style="font-size:18px;font-weight:500;color:#8A9BAB;">/mo</span></div>
+        <div class="pricing-note">Up to 25 providers included</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-list">
+          <li>CAQH setup & attestation</li>
+          <li>Payer enrollment submissions</li>
+          <li>Follow-up & status tracking</li>
+          <li>Approvals & effective date confirmation</li>
+          <li>Recredentialing as needed</li>
+          <li style="color:#B0BEC5;">+$500/mo per provider beyond 25</li>
+        </ul>
+        <a href="#contact" class="pricing-btn">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="pricing-name">RCM & Billing</div>
+        <div class="pricing-price" style="font-size:28px;">$15,000<span style="font-size:16px;font-weight:500;color:rgba(255,255,255,0.4);">/mo flat</span></div>
+        <div class="pricing-note">+ tiered collection fee (credited against flat rate)</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-list">
+          <li>Insurance verification & benefits</li>
+          <li>Claim submission & corrections</li>
+          <li>Payment posting (ERA/EOB)</li>
+          <li>Denial management & appeals</li>
+          <li>Monthly AR + collection reports</li>
+          <li>Collections 0–$500K/mo → 4%</li>
+          <li>Collections $500K–$1M/mo → 3.75%</li>
+          <li>Collections $1M+/mo → 3.5%</li>
+        </ul>
+        <a href="#contact" class="pricing-btn">Get a Free Analysis</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Billing Software</div>
+        <div class="pricing-price">$5,000<span style="font-size:18px;font-weight:500;color:#8A9BAB;">/mo</span></div>
+        <div class="pricing-note">Up to 25 providers included</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-list">
+          <li>RXNT setup & configuration</li>
+          <li>Clearinghouse EDI connection</li>
+          <li>Claim status & payment reports</li>
+          <li>Provider login & monitoring access</li>
+          <li>EHR integration as needed</li>
+          <li style="color:#B0BEC5;">+$250/mo per provider beyond 25</li>
+        </ul>
+        <a href="#contact" class="pricing-btn">Get Started</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:#8A9BAB;margin-top:24px;">All contracts are month-to-month. Either party may terminate with 30 days written notice. Net 15 payment terms. <a href="#contact" style="color:var(--blue);">Questions? Talk to us.</a></p>
+  </div>
+</section>
+
+<!-- ══════ ABOUT ══════ -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image-wrap">
+        <div class="about-stat-grid">
+          <div class="about-stat">
+            <div class="about-stat-num">25<span>+</span></div>
+            <div class="about-stat-label">Providers Managed</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">14<span>+</span></div>
+            <div class="about-stat-label">Payer Contracts</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">2<span>yr+</span></div>
+            <div class="about-stat-label">Min. Staff Experience</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">0</div>
+            <div class="about-stat-label">Long-Term Contracts</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-label">About APX RCM</div>
+        <h2 class="section-title">Built by Billing Professionals Who Know What Practices Actually Need</h2>
+        <p>APX RCM was founded by Bassam Chahine with one clear purpose: to give medical practices a billing partner that operates with the same level of precision and accountability they bring to patient care.</p>
+        <p>We're based in Dearborn, Michigan. Every member of our team carries a minimum of two years industry experience and completes our internal compliance and training program before handling a single claim.</p>
+        <div class="about-values">
+          <div class="about-value">
+            <div class="value-icon">🎯</div>
+            <div class="value-text">
+              <strong>Accuracy over volume</strong>
+              We'd rather get your claims right the first time than chase denials on a hundred wrong ones.
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="value-icon">🤝</div>
+            <div class="value-text">
+              <strong>No lock-in — ever</strong>
+              Month-to-month means we earn your business every single month. That's how it should work.
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="value-icon">📍</div>
+            <div class="value-text">
+              <strong>Local. Reachable. Accountable.</strong>
+              We're based in Dearborn, MI. When you call, you get a person who knows your account.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<section class="section off-section" id="faq">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:560px;margin:0 auto 0;">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Questions We Get All the Time</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does onboarding take?</div>
+        <div class="faq-a">Most practices are fully operational with APX RCM within 30 days. Credentialing timelines vary by payer, but billing and claim submission typically begins within the first week after EHR and portal access is granted.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you require a long-term contract?</div>
+        <div class="faq-a">No. All our agreements are month-to-month with 30 days written notice required to terminate. We've built our business around results — not contracts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do you handle denied claims?</div>
+        <div class="faq-a">Every denied claim is tracked, categorized by denial reason, and actioned by our team. We file appeals, correct and resubmit, and dispute payer decisions when warranted. You receive a monthly denial report with trend analysis.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is my patient data secure?</div>
+        <div class="faq-a">Yes. We are fully HIPAA compliant and execute a Business Associate Agreement (BAA) with every client on day one. All patient and financial data remains your property at all times — including after termination.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What EHR/PM systems do you work with?</div>
+        <div class="faq-a">We work with most major EHR and practice management systems. During your free revenue analysis, we'll confirm compatibility with your current setup. We use RXNT as our primary billing platform and can integrate with your existing system where supported.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What specialties do you work with?</div>
+        <div class="faq-a">We work with a wide range of specialty practices including primary care, urgent care, orthopedics, and more. During your free analysis call, we'll assess your specific specialty's billing requirements and payer mix.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is APX RCM different from other billing companies?</div>
+        <div class="faq-a">Three things: (1) Dedicated billing manager — you're never talking to a different person every call. (2) Month-to-month agreements — no lock-in, ever. (3) Full transparency — you get weekly and monthly reports so you always know where your money is.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens to my data if I leave?</div>
+        <div class="faq-a">You own all your patient and financial data — always. Upon final payment, we provide a complete data export in your preferred format. There are no data hostage situations with us.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CONTACT ══════ -->
+<section class="section dark-section" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Start With a Free Revenue Analysis</h2>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>We'll find the revenue gaps your current billing setup is missing — at no cost.</h3>
+        <p>In a 30-minute call, we'll review your current collection rate, denial trends, and credentialing status. You'll leave knowing exactly where your practice is losing money and how to fix it.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-text"><strong>Phone</strong>248-686-1357</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📠</div>
+          <div class="contact-detail-text"><strong>Fax</strong>248-455-3321</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-text"><strong>Email</strong>bassam.chahine@onesourceprovider.com</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text"><strong>Address</strong>4 Parklane Blvd, Ste 350<br>Dearborn, MI 48127</div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form action="mailto:bassam.chahine@onesourceprovider.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" placeholder="John" required/>
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" placeholder="Smith" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Practice / Organization *</label>
+              <input type="text" placeholder="Dearborn Medical Center" required/>
+            </div>
+            <div class="form-group">
+              <label>Specialty</label>
+              <select>
+                <option value="">Select specialty...</option>
+                <option>Primary Care</option>
+                <option>Urgent Care</option>
+                <option>Orthopedics</option>
+                <option>Internal Medicine</option>
+                <option>Pediatrics</option>
+                <option>Cardiology</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" placeholder="(248) 000-0000" required/>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="you@practice.com" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Number of Providers</label>
+            <select>
+              <option value="">Select...</option>
+              <option>1–5 providers</option>
+              <option>6–15 providers</option>
+              <option>16–25 providers</option>
+              <option>25+ providers</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>What's your biggest billing challenge right now?</label>
+            <textarea placeholder="e.g. high denial rate, slow reimbursements, credentialing issues..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request My Free Revenue Analysis →</button>
+          <p class="form-hipaa">HIPAA Compliant · BAA Executed · Your data is never shared</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-mark">A</div>
+          <div class="logo-text" style="font-size:16px;">APX <span>RCM</span></div>
+        </div>
+        <p>Full revenue cycle management for Michigan medical practices. Credentialing, billing, denial management — all under one roof. No lock-in.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">RCM & Billing</a></li>
+          <li><a href="#services">Credentialing</a></li>
+          <li><a href="#services">Insurance Verification</a></li>
+          <li><a href="#services">Denial Management</a></li>
+          <li><a href="#services">Billing Software</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:2486861357">248-686-1357</a></li>
+          <li><a href="mailto:bassam.chahine@onesourceprovider.com">Email Us</a></li>
+          <li><a href="#contact">Free Analysis</a></li>
+          <li style="color:rgba(255,255,255,0.3);font-size:12px;">4 Parklane Blvd, Ste 350<br>Dearborn, MI 48127</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 APX RCM · All rights reserved · Dearborn, Michigan</p>
+      <div class="footer-badges">
+        <span class="footer-badge">HIPAA Compliant</span>
+        <span class="footer-badge">BAA Executed</span>
+        <span class="footer-badge">Month-to-Month</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#process" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Get a Free Analysis →</a>
+</div>
+
+<script>
+/* ── HAMBURGER ── */
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+}
+
+/* ── COUNT-UP ON SCROLL ── */
+function animateCountUp(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 1600;
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    // ease-out
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.countup').forEach(el => animateCountUp(el));
+      statsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+
+const statsRow = document.getElementById('stats-row');
+if (statsRow) statsObserver.observe(statsRow);
+
+/* ── PROCESS PROGRESSIVE REVEAL ── */
+const processObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const grid = entry.target;
+      const line = grid.querySelector('.process-line');
+      const steps = grid.querySelectorAll('.process-step');
+
+      // Animate connector line
+      if (line) setTimeout(() => line.classList.add('active'), 100);
+
+      // Reveal steps sequentially
+      steps.forEach((step, i) => {
+        setTimeout(() => step.classList.add('visible'), 150 + i * 250);
+      });
+
+      processObserver.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+
+const processGrid = document.getElementById('process-grid');
+if (processGrid) processObserver.observe(processGrid);
+
+/* ── SMOOTH NAV HIGHLIGHT ── */
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + entry.target.id
+          ? '#fff' : 'rgba(255,255,255,0.7)';
+      });
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => navObserver.observe(s));
+</script>
+</body>
+</html>
